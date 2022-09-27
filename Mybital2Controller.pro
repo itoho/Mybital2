@@ -1,6 +1,7 @@
 QT       += core gui
 QT += serialport
 QT       += datavisualization qml quick
+QT += opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 win32: LIBS += -lUser32#windows api
@@ -11,13 +12,16 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    hover.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    hover.h \
     mainwindow.h
 
 FORMS += \
+    hover.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

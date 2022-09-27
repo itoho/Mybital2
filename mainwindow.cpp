@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_TranslucentBackground,true);//背景描画無効
+    this->setWindowOpacity(0.5);
     oldLine="";
     foreach( const QSerialPortInfo info, QSerialPortInfo::availablePorts() ){
         qDebug() << "Name        :" << info.portName();
@@ -130,8 +132,8 @@ void MainWindow::printData()
                 ip.mi.time=0;
 
                 SendInput(1,&ip,sizeof(INPUT));
-
-
+                ui->horizontalSlider->setValue(data.split(",")[1].toInt());
+                ui->verticalSlider->setValue(data.split(",")[0].toInt());
 
 
                 MainWindow::oldLine=data;
